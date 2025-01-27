@@ -1,0 +1,59 @@
+/* src/styles/Heroes.css */
+
+/* Conteneur principal de l'app */
+.app-container {
+    font-family: sans-serif;
+    padding: 1rem;
+}
+
+/* Liste de héros */
+.hero-list {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Carte générique */
+.card {
+    width: 180px;
+    min-height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #fff;
+    cursor: default;
+}
+
+/* Carte d'un héros existant */
+.hero-card {
+}
+
+/* Carte "plus" */
+.plus-card {
+    border: 2px dashed #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Signe plus */
+.plus-sign {
+    font-size: 2rem;
+    color: #666;
+}
+
+/* Bouton suppression de personnage */
+.delete-button {
+    background: none; /* Pas de fond */
+    border: solid 2px red ; /* Pas de bordure */
+    border-radius: 5px;
+    cursor: pointer; /* Curseur "clic" */
+    font-size: 1.5rem; /* Ajuste la taille si besoin */
+    margin-top: 0.5rem; /* Petit espace en haut */
+}
+
+.delete-button:hover {
+    filter: brightness(0.8);
+}

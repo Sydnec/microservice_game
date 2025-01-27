@@ -3,7 +3,7 @@ import { Router } from 'express';
 const router = Router();
 
 // On importe les fonctions "create" et "findByPk" du fichier Hero.js
-import { create, findByPk } from '../models/Hero.js';
+import { create, findByPk, findAll } from '../models/Hero.js';
 
 // ========================
 // 1. POST /heroes (Créer un nouveau héros)
@@ -108,6 +108,40 @@ router.put('/heroes/:id/spendgold', async (req, res) => {
   } catch (error) {
     console.error('Erreur dépense or :', error);
     res.status(500).json({ error: 'Impossible de dépenser de l’or pour améliorer les stats' });
+  }
+});
+
+// ========================
+// 6. GET /heroes (Récupérer tous les héros)
+// ========================
+router.get('/heroes', async (req, res) => {
+  try {
+    const heroes = await findAll(); 
+
+    res.json(heroes);
+  } catch (error) {
+    console.error('Erreur récupération de tous les héros :', error);
+    res.status(500).json({ error: 'Impossible de récupérer la liste des héros' });
+  }
+});
+
+// ========================
+// 7. DELETE /heroes/:id (Supprimer un héros)
+// ========================
+router.delete('/heroes/:id', async (req, res) => {
+  try {
+    const heroId = parseInt(req.params.id, 10);
+    const hero = await findByPk(heroId);
+
+    if (!hero) {
+      return res.status(404).json({ error: 'Héros introuvable' });
+    }
+
+    await hero.destroy(); // Supprime le héros de la base
+    res.json({ message: 'Héros supprimé avec succès' });
+  } catch (error) {
+    console.error('Erreur suppression héros :', error);
+    res.status(500).json({ error: 'Impossible de supprimer le héros' });
   }
 });
 

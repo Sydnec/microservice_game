@@ -1,29 +1,26 @@
 // services/hero/server.js
 import express from 'express';
-import { sequelize } from './models/index.js';   // Export named "sequelize"
+import cors from 'cors';
+import { sequelize } from './models/index.js';
 import heroRoutes from './routes/heroRoutes.js';
 
 const app = express();
 const PORT = 5001;
 
-// Middleware JSON
 app.use(express.json());
 
-// On synchronise d’abord la base
-sequelize.sync()
-  .then(() => {
-    console.log('Base de données synchronisée pour le service Héros');
+// 1. Activer cors globalement
+app.use(cors({
+  origin: '*'  // Autorise cette origine
+}));
 
-    // Attach routes
-    // => Les endpoints sont accessibles à partir de "/"
-    // => Ex: POST /heroes
-    app.use('/', heroRoutes);
+// 2. Synchroniser la base, puis démarrer
+sequelize.sync().then(() => {
+  app.use('/', heroRoutes);
 
-    // On lance l’écoute
-    app.listen(PORT, () => {
-      console.log(`Service Héros démarré sur http://localhost:${PORT}`);
-    });
-  })
-  .catch(err => {
-    console.error('Impossible de synchroniser la BDD', err);
+  app.listen(PORT, () => {
+    console.log(`Service Héros tourne sur http://localhost:${PORT}`);
   });
+}).catch(err => {
+  console.error('Erreur synchronisation DB:', err);
+});
