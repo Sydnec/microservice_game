@@ -12,6 +12,7 @@ export default function HeroCard({ hero, onDelete }) {
       <p>HP: {hero.hp} / {hero.hp_max}</p>
       <p>Attack: {hero.attack}</p>
       <p>Defense: {hero.defense}</p>
+      <p>Speed: {hero.speed}</p>
       <p>Gold: {hero.gold}</p>
 
       <button onClick={handleDelete} className="delete-button">
