@@ -126,7 +126,9 @@ Par défaut, le client est disponible sur http://localhost:3000.
 Service Héros (port 5001)
 
     POST /heroes : Créer un nouveau héros
+    GET /heroes : Récupérer tous les héros
     GET /heroes/:id : Récupérer un héros
+    DELETE /heroes/:id : Supprime un héros
     PUT /heroes/:id/xp : Augmenter l’XP d’un héros
     PUT /heroes/:id/addgold : Ajouter de l’or
     PUT /heroes/:id/spendgold : Dépenser de l’or pour améliorer les stats
