@@ -1,16 +1,10 @@
-/* src/styles/Heroes.css */
-
-/* Conteneur principal de l'app */
-.app-container {
-    font-family: sans-serif;
-    padding: 1rem;
-}
-
-/* Liste de héros */
+/* Conteneur de la liste de héros */
 .hero-list {
     display: flex;
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    font-family: sans-serif;
 }
 
 /* Carte générique */
@@ -22,14 +16,15 @@
     padding: 1rem;
     box-sizing: border-box;
     background-color: #fff;
-    cursor: default;
+    position: relative; /* Permet la position absolue du bouton si besoin */
 }
 
-/* Carte d'un héros existant */
+/* Carte représentant un héros */
 .hero-card {
+    /* Ajoute des styles spécifiques si tu veux la différencier */
 }
 
-/* Carte "plus" */
+/* Carte “+” (création) */
 .plus-card {
     border: 2px dashed #999;
     display: flex;
@@ -44,16 +39,19 @@
     color: #666;
 }
 
-/* Bouton suppression de personnage */
+/* Bouton de suppression (petite corbeille rouge) */
 .delete-button {
-    background: none; /* Pas de fond */
-    border: solid 2px red ; /* Pas de bordure */
-    border-radius: 5px;
-    cursor: pointer; /* Curseur "clic" */
-    font-size: 1.5rem; /* Ajuste la taille si besoin */
-    margin-top: 0.5rem; /* Petit espace en haut */
+    color: red; /* Icone rouge */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    position: absolute; /* Optionnel : si tu veux le placer en haut à droite */
+    top: 0.5rem; /* Ajuste la position */
+    right: 0.5rem; /* Ajuste la position */
 }
 
 .delete-button:hover {
-    filter: brightness(0.8);
+    filter: brightness(0.8); /* Légère variation au survol */
 }
