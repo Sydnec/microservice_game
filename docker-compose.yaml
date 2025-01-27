@@ -3,7 +3,7 @@ version: '3.9'
 services:
   # Service Héros
   hero-service:
-    build: ./services/heros
+    build: ./services/hero
     container_name: hero-service
     ports:
       - "5001:5001"
@@ -27,4 +27,4 @@ services:
     build: ./client
     container_name: react-client
     ports:
-      - "3000:3000"
+      - "3000:80"
