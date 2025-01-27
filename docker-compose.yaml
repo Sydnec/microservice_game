@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  # Service Héros
+  hero-service:
+    build: ./services/heros
+    container_name: hero-service
+    ports:
+      - "5001:5001"
+
+  # Service Donjon
+  dungeon-service:
+    build: ./services/dungeon
+    container_name: dungeon-service
+    ports:
+      - "5002:5002"
+
+  # Service Combat
+  fight-service:
+    build: ./services/fight
+    container_name: fight-service
+    ports:
+      - "5003:5003"
+
+  # Client React
+  client:
+    build: ./client
+    container_name: react-client
+    ports:
+      - "3000:3000"
