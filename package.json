@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "cd server && node index.js",
     "client": "cd client && npm start",
-    "start": "concurrently \"npm start --prefix client\" \"node services/heros/server.js\" \"node services/dungeon/server.js\" \"node services/fight/server.js\""
+    "start": "concurrently \"npm start --prefix client\" \"node services/heros/server.js\" \"node services/dungeon/server.js\" \"node services/fight/server.js\"",
+    "hero": "node services/hero/server.js",
+    "dungeon": "node services/dungeon/server.js",
+    "fight": "node services/fight/server.js"
   },
   "keywords": [],
   "author": "",
