@@ -9,7 +9,8 @@
     "start": "concurrently \"npm start --prefix client\" \"node services/hero/server.js\" \"node services/dungeon/server.js\" \"node services/fight/server.js\"",
     "hero": "node services/hero/server.js",
     "dungeon": "node services/dungeon/server.js",
-    "fight": "node services/fight/server.js"
+    "fight": "node services/fight/server.js",
+    "install-all": "npm install && (cd client && npm install) && (cd services/heros && npm install) && (cd ../dungeon && npm install) && (cd ../fight && npm install)"
   },
   "keywords": [],
   "author": "",
