@@ -19,11 +19,6 @@
     position: relative; /* Permet la position absolue du bouton si besoin */
 }
 
-/* Carte représentant un héros */
-.hero-card {
-    /* Ajoute des styles spécifiques si tu veux la différencier */
-}
-
 /* Carte “+” (création) */
 .plus-card {
     border: 2px dashed #999;

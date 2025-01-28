@@ -1,13 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/Heroes.css'
 
-export default function HeroCreateCard({ onCreateHero }) {
+export default function HeroCreateCard() {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    const name = prompt('Entrez le nom du nouveau héros :');
-    if (name) {
-      onCreateHero(name);
-    }
+    navigate('/create');
   };
-  
+
   return (
     <div className="card plus-card" onClick={handleClick}>
       <span className="plus-sign">+</span>

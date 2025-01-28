@@ -7,7 +7,7 @@ export default function HeroCard({ hero, onDelete, onSelect }) {
   };
 
   const handleDelete = (e) => {
-    e.stopPropagation(); // Évite de déclencher handleCardClick
+    e.stopPropagation();
     onDelete?.(hero.id);
   };
 

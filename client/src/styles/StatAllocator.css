@@ -1,0 +1,44 @@
+/* Conteneur pour la répartition des stats */
+.stat-allocator {
+  margin: 1rem 0;
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* Ligne pour chaque stat */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.stat-name {
+  width: 100px;
+}
+
+/* Boutons pour augmenter ou diminuer les stats */
+.stat-row button {
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.stat-row button:hover {
+  background-color: #ddd;
+}
+
+.stat-row button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Points restants */
+.stat-allocator p {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
