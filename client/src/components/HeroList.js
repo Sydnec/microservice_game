@@ -49,8 +49,8 @@ export default function HeroList() {
     };
 
     // Sélectionner un héros pour jouer
-    const selectHero = (id) => {
-        navigate('/game', { state: { heroId: id } });
+    const selectHero = (hero) => {
+        navigate('/game', { state: { hero } });
     };
 
     return (
