@@ -11,9 +11,17 @@ export default function Game() {
         // ex: navigate('/improve');
     };
 
-    const handleDungeon = () => {
+    const handleDungeon = async () => {
         console.log('Entrer dans un donjon');
-        // ex: navigate('/dungeon');
+        const response = await fetch('http://localhost:5002/start', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+             },
+            body: {}
+        });
+
+        navigate('/dungeon');
     };
 
     const handleBack = () => {
