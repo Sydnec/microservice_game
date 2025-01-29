@@ -67,12 +67,13 @@ router.put('/move', async (req, res) => {
         if(random_number != flag_encounter) {
             res.status(201).json({
                 message: "Case vide",
-                position: donjon.niveau_actuel
+                position: donjon.progression
             });
         } else {
             res.status(201).json({
                 message: "Combat avec un monstre",
-                position: donjon.monstre
+                position: donjon.progression,
+                monstre: donjon.monstre
             });
         }
     } catch (error) {
