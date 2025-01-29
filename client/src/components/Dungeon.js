@@ -15,20 +15,15 @@ export default function Dungeon() {
                 'Access-Control-Allow-Origin': '*'
                }
             });
-      
+            const value = await response.json()
+            let game_screen = document.getElementById("game-screen")
             if (!response.ok) {
-                console.log(response.ok)
                 const errorData = await response.json();
                 throw new Error(errorData.error || 'Erreur lors du déplacement du héros.');
             }
-      
-            if(response.body.message === "Case vide") {
-                return (
-                    <div className="gameScreen">
-                        Case vide, case numéro n°{response.body.position}
-                    </div>
-                );
-            }
+            console.log(value)
+            game_screen.innerText = `${value.message}\nCase n°${value.position}`
+            
             // Redirection vers "/" après création
             // navigate('/', { state: { refresh: true } });
         } catch (error) {
@@ -39,8 +34,7 @@ export default function Dungeon() {
 
     return (
         <div className="game-container">
-            <div className="gameScreen">
-            </div>
+            <div className="game-screen" id="game-screen"></div>
             <div className="game-actions">
                 <div className="game-card" onClick={handleMoving}>
                     <h3>Avancer d'une case</h3>

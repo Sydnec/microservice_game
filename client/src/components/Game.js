@@ -1,8 +1,14 @@
 // src/components/Game.js
 import React from 'react';
+<<<<<<< Updated upstream
+=======
+import { useNavigate, useLocation } from 'react-router-dom';
+import '../styles/Game.css';
+>>>>>>> Stashed changes
 
 export default function Game() {
     const navigate = useNavigate();
+    const location = useLocation(); // Permet de récupérer l'état de la navigation
 
     const handleImprove = () => {
         console.log('Améliorer le personnage');
@@ -11,12 +17,13 @@ export default function Game() {
 
     const handleDungeon = async () => {
         console.log('Entrer dans un donjon');
+        console.log(location.state?.hero)
         const response = await fetch('http://localhost:5002/start', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
              },
-            body: {}
+            body: JSON.stringify(location.state?.hero)
         });
 
         navigate('/dungeon');
