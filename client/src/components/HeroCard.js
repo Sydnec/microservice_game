@@ -3,11 +3,11 @@ import React from 'react';
 
 export default function HeroCard({ hero, onDelete, onSelect }) {
   const handleCardClick = () => {
-    onSelect?.(hero.id); 
+    onSelect?.(hero); 
   };
 
   const handleDelete = (e) => {
-    e.stopPropagation(); // Évite de déclencher handleCardClick
+    e.stopPropagation();
     onDelete?.(hero.id);
   };
 

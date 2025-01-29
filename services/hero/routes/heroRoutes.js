@@ -10,12 +10,28 @@ import { create, findByPk, findAll } from '../models/Hero.js';
 // ========================
 router.post('/heroes', async (req, res) => {
   try {
-    const { name } = req.body;
-    const newHero = await create({ name });
+    const { name, attack, defense, speed, hp_max, gold } = req.body;
+
+    // Validation basique des données requises
+    if (!name) {
+      return res.status(400).json({ error: "Le nom du héros est requis." });
+    }
+
+    // Création du héros avec les stats fournies
+    const newHero = await create({
+      hp_max: hp_max || 100,
+      hp: hp_max || 100,
+      name,
+      attack: attack || 0,
+      defense: defense || 0,
+      speed: speed || 0,
+      gold: gold,
+    });
+
     res.status(201).json(newHero);
   } catch (error) {
     console.error('Erreur création héros :', error);
-    res.status(500).json({ error: 'Impossible de créer le héros' });
+    res.status(500).json({ error: 'Impossible de créer le héros.' });
   }
 });
 

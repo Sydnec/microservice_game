@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   # Service Héros
   hero-service:
@@ -7,6 +5,10 @@ services:
     container_name: hero-service
     ports:
       - "5001:5001"
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+    depends_on:
+      - rabbitmq
 
   # Service Donjon
   dungeon-service:
@@ -21,6 +23,10 @@ services:
     container_name: fight-service
     ports:
       - "5003:5003"
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+    depends_on:
+      - rabbitmq
 
   # Client React
   client:
@@ -28,3 +34,14 @@ services:
     container_name: react-client
     ports:
       - "3000:80"
+
+ # RabbitMQ
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"   # Port RabbitMQ
+      - "15672:15672" # Interface de gestion RabbitMQ
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest

@@ -1,10 +1,7 @@
 // src/components/Game.js
 import React from 'react';
-<<<<<<< Updated upstream
-=======
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Game.css';
->>>>>>> Stashed changes
 
 export default function Game() {
     const navigate = useNavigate();
