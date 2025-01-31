@@ -103,7 +103,7 @@ Lancement global avec un script NPM et `concurrently`
 1. Installez la dépendance (si ce n’est pas déjà fait) :
 
 ```bash
-npm i
+npm run install-all
 ```
 
 2. À la racine du projet, lancez la commande :
