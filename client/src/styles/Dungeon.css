@@ -53,3 +53,8 @@
     margin: 0;
     color: #333;
 }
+
+.hidden {
+    visibility: hidden;  /* Rend invisible mais conserve l'espace */
+    pointer-events: none; /* Empêche les clics/interactions */
+}

@@ -18,6 +18,7 @@ router.post('/start', async (req, res) => {
   try {
     const hero = await req.body;
     donjon.nombre_niveaux = Math.floor(Math.random() * (MAX_LEVEL - MIN_LEVEL + 1)) + MIN_LEVEL;
+    donjon.progression = 0;
     const hp_max = 100 + Math.floor(hero.hp_max / 2) + hero.level;
     let temp_attack = hero.attack + (Math.floor(Math.random() * (7 + 10 + 1)) - 10);
     const defense = hero.defense;
@@ -56,7 +57,8 @@ router.put('/move', async (req, res) => {
     try {
         const flag_encounter = Math.floor(Math.random() * CHANCE_MONSTER_ENCOUNTER);
         const random_number = Math.floor(Math.random() * CHANCE_MONSTER_ENCOUNTER);
-        if(donjon.progression == donjon.nombre_niveaux) {
+        if(donjon.progression >= donjon.nombre_niveaux) {
+            donjon.progression = donjon.nombre_niveaux;
             res.status(201).json({
                 message: "Combat avec le boss",
                 boss: donjon.boss
