@@ -23,7 +23,7 @@ export default function Game() {
             body: JSON.stringify(location.state?.hero)
         });
 
-        navigate('/dungeon');
+        navigate('/dungeon', { state : { hero: location.state?.hero, fight_finished: true } } );
     };
 
     const handleBack = () => {
